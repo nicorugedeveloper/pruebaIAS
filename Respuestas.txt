@@ -99,4 +99,66 @@ tabla "Canciones"
 
 			SELECT Canciones.titulo, Artista.nombre FROM Canciones INNER JOIN Artista ON Canciones.ID = Artista.art_id 
 			
+
+7. Transactions
+
+
+7.1 Explica brevemente los principios de ACID. -> Solo recuerdo Atomocidad y Consistente  :Preguntas
+
+
+7.2 Utiliza comandos BEGIN y COMMIT para encapsular una serie de instrucciones SQL en una transacción.
+
+	BEGIN;
+	   SELECT * FROM Canciones
+	COMMIT;
+	
+8. Funciones Aritméticas y Vistas
+
+8.1 Escribe una consulta que utilice funciones aritméticas para calcular la duración promedio de las canciones.
+		SELECT AVG(duracion) AS duracion_promedio FROM Canciones;
+
+
+8.2 Crea una vista que muestre los títulos y las duraciones de las canciones.
+	    
+		CREATE VIEW VTDuraciones AS SELECT titulo, duracion FROM Canciones
+		
+		
+9. Funciones Avanzadas y Stored Procedures
+
+9.1 Escribe una consulta que utilice un cursor para mostrar "Larga" si la duración es mayor que 7 minutos y "Corta"
+en caso contrario.
+
+
+
+9.2 Crea un procedimiento almacenado que calcule cual es la cancion mas reproducida de un artist
+
+			CREATE PROCEDURE canMasSonada AS
+			BEGIN 
+				SELECT titulo, MAX(Reproducciones) FROM canciones GROUP BY titulo; 
+			END;
 			
+
+10. Triggers y Optimización de Consultas
+
+10.1  Crea un trigger que se active antes de la inserción en la tabla "Canciones" y asegure que la duración no sea
+inferior a 1 minuto.
+
+		CREATE TRIGGER DuMini BEFORE
+			INSERT ON Canciones
+		FOR EACH ROW
+		BEGIN
+			IF NEW.duracion < '00:01:00' THEN 
+				SIGNAL SQLSTATE '45000' SET
+				MESSAGE_TEXT = 'Duracion deberia ser por lo menos un minuto'
+			END IF;
+		END;
+
+
+10.2 Proporciona una consulta que optimice el rendimiento al reducir el número de subconsultas utilizadas.
+
+		SELECT c.titulo, a.nombre FROM Canciones c 
+		JOIN artista a ON c.artista_id = a.artista_id;
+		
+
+11. Conceptos Avanzados de SQL
+Escribe una consulta recursiva para mostrar una jerarquía de canciones por reproducciones.
