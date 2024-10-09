@@ -6,8 +6,48 @@ Preguntas y Actividades:
 
 1. Tipos de Datos y Operadores
 
-11 ->numera al menos cinco tipos de datos comunes en SQL y proporciona un ejemplo de cada uno.
+1.1 ->numera al menos cinco tipos de datos comunes en SQL y proporciona un ejemplo de cada uno.
 	r:  INT (edad INT)   -   VARCHAR (nombre VARCHAR(50)) - DATE (fecha_nacimiento DATE) - BOOLEAN (activo BOOLEAN) - FLOAT (precio FLOAT)
 	
-	-> Explica la diferencia entre el operador LIKE y el operador IN : LIKE normalmente es utlizado para la busqueda de patrones dentro de unas cadenas de texto
+1.2	-> Explica la diferencia entre el operador LIKE y el operador IN : LIKE normalmente es utlizado para la busqueda de patrones dentro de unas cadenas de texto, mientras que IN lo utilizo.
+	para especificar patrones de multiples valores
+	
 
+2. Comandos Básicos
+
+2.1 Crea una tabla llamada "Canciones" con al menos cinco columnas: ID (clave primaria), Título, Artista,Reproducciones, Valoracion y Duración.
+     
+	 CREATE TABLE Canciones (
+		ID INT PRIMARY KEY,
+		Titulo VARCHAR(255),
+		Artista VARCHAR(255),
+		Reproducciones INT,
+		Valoracion FLOAT, 
+		Duración INT
+	 
+	 );
+	
+
+2.2 Inserta al menos 15 registros en la tabla "Canciones".
+	
+	INSERT INTO Canciones VALUES (1, 'Cancion 1', 'Artista 1', 10000, 4.5, 240), 
+								(2, 'Cancion 2', 'Artista 2', 20000, 6.5, 440),
+								(3, 'Cancion 3', 'Artista 3', 30000, 8.5, 640),
+								(4, 'Cancion 4', 'Artista 4', 40000, 4.5, 240),
+							    (5, 'Cancion 5', 'Artista 5', 10000, 4.5, 240),
+								(6, 'Cancion 6', 'Artista 6', 10000, 4.5, 240),
+								(7, 'Cancion 7', 'Artista 7', 10000, 4.5, 240),
+								(8, 'Cancion 8', 'Artista 8', 10000, 4.5, 240),
+								(9, 'Cancion 9', 'Artista 9', 10000, 4.5, 240),
+								(10, 'Cancion 10', 'Artista 10', 10000, 4.5, 240),
+								(11, 'Cancion 11', 'Artista 11', 10000, 4.5, 240),
+								(12, 'Cancion 12', 'Artista 12', 10000, 4.5, 240),
+								(13, 'Cancion 13', 'Artista 13', 10000, 4.5, 240),
+								(14, 'Cancion 14', 'Artista 14', 10000, 4.5, 240),
+								(14, 'Cancion 15', 'Artista 15', 10000, 4.5, 240);
+								
+
+
+2.3 Utiliza un comando para eliminar todos los registros de la tabla "Canciones".
+         
+		  DELETE FROM Canciones;
