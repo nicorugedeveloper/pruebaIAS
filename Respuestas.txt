@@ -1,0 +1,13 @@
+PRUEBA IAS
+
+
+Preguntas y Actividades:
+
+
+1. Tipos de Datos y Operadores
+
+11 ->numera al menos cinco tipos de datos comunes en SQL y proporciona un ejemplo de cada uno.
+	r:  INT (edad INT)   -   VARCHAR (nombre VARCHAR(50)) - DATE (fecha_nacimiento DATE) - BOOLEAN (activo BOOLEAN) - FLOAT (precio FLOAT)
+	
+	-> Explica la diferencia entre el operador LIKE y el operador IN : LIKE normalmente es utlizado para la busqueda de patrones dentro de unas cadenas de texto
+
