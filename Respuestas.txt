@@ -23,7 +23,7 @@ Preguntas y Actividades:
 		Artista VARCHAR(255),
 		Reproducciones INT,
 		Valoracion FLOAT, 
-		Duración INT
+		Duracion INT
 	 
 	 );
 	
@@ -51,3 +51,32 @@ Preguntas y Actividades:
 2.3 Utiliza un comando para eliminar todos los registros de la tabla "Canciones".
          
 		  DELETE FROM Canciones;
+		  
+		  
+
+3. Consultas Básicas y Agregadas
+
+
+3.1 Escribe una consulta para seleccionar todas las canciones que tienen una duración superior a 5 minutos.
+         SELECT * FROM Canciones WHERE duracion > 300 ;
+
+
+3.2 Escribe una consulta para calcular la duración total de todas las canciones.
+        SELECT SUM(duracion) AS Dtotal FROM Canciones;
+
+3.3 Escribe una consulta para contar el número total de canciones en la tabla.
+
+		SELECT COUNT(*) AS TCanciones FROM Canciones;
+
+
+4 Restricciones de Datos
+
+4.1 Agrega una restricción de clave primaria a la columna "ID" en la tabla "Canciones".
+		
+			ALTER TABLE Canciones ADD PRIMARY KEY (ID)
+
+4.2 Agrega una restricción de clave externa a la tabla "Canciones" que haga referencia a otra tabla llamada
+"Artistas".
+
+			ALTER TABLE Canciones ADD CONSTRAINT fk_artista FOREIGN KEY (art_id) REFERENCES(ID);
+			
