@@ -103,7 +103,10 @@ tabla "Canciones"
 7. Transactions
 
 
-7.1 Explica brevemente los principios de ACID. -> Solo recuerdo Atomocidad y Consistente  :Preguntas
+7.1 Explica brevemente los principios de ACID. ->  * Atomocidad: Toda transaccion se ejecuta o no 
+												   * Consistente: Deben Generar registros en la BD de manera consistente
+												   * Aislado: Las transacciones no deben interferir entre si 
+												   * Durable: Cuando se ejecuta la transaccion sus cambios son permanentes 
 
 
 7.2 Utiliza comandos BEGIN y COMMIT para encapsular una serie de instrucciones SQL en una transacción.
