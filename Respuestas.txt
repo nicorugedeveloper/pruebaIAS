@@ -23,28 +23,28 @@ Preguntas y Actividades:
 		Artista VARCHAR(255),
 		Reproducciones INT,
 		Valoracion FLOAT, 
-		Duracion INT
+		Duracion TIME
 	 
 	 );
 	
 
 2.2 Inserta al menos 15 registros en la tabla "Canciones".
 	
-	INSERT INTO Canciones VALUES (1, 'Cancion 1', 'Artista 1', 10000, 4.5, 240), 
-								(2, 'Cancion 2', 'Artista 2', 20000, 6.5, 440),
-								(3, 'Cancion 3', 'Artista 3', 30000, 8.5, 640),
-								(4, 'Cancion 4', 'Artista 4', 40000, 4.5, 240),
-							    (5, 'Cancion 5', 'Artista 5', 10000, 4.5, 240),
-								(6, 'Cancion 6', 'Artista 6', 10000, 4.5, 240),
-								(7, 'Cancion 7', 'Artista 7', 10000, 4.5, 240),
-								(8, 'Cancion 8', 'Artista 8', 10000, 4.5, 240),
-								(9, 'Cancion 9', 'Artista 9', 10000, 4.5, 240),
-								(10, 'Cancion 10', 'Artista 10', 10000, 4.5, 240),
-								(11, 'Cancion 11', 'Artista 11', 10000, 4.5, 240),
-								(12, 'Cancion 12', 'Artista 12', 10000, 4.5, 240),
-								(13, 'Cancion 13', 'Artista 13', 10000, 4.5, 240),
-								(14, 'Cancion 14', 'Artista 14', 10000, 4.5, 240),
-								(14, 'Cancion 15', 'Artista 15', 10000, 4.5, 240);
+	INSERT INTO Canciones VALUES (1, 'Cancion 1', 'Artista 1', 10000, 4.5, '00:04:16'), 
+								(2, 'Cancion 2', 'Artista 2', 20000, 6.5, '00:04:16'),
+								(3, 'Cancion 3', 'Artista 3', 30000, 8.5, '00:04:16'),
+								(4, 'Cancion 4', 'Artista 4', 40000, 4.5, '00:04:16'),
+							    (5, 'Cancion 5', 'Artista 5', 10000, 4.5, '00:04:16'),
+								(6, 'Cancion 6', 'Artista 6', 10000, 4.5, '00:04:16'),
+								(7, 'Cancion 7', 'Artista 7', 10000, 4.5, '00:04:16'),
+								(8, 'Cancion 8', 'Artista 8', 10000, 4.5, '00:04:16'),
+								(9, 'Cancion 9', 'Artista 9', 10000, 4.5, '00:04:16'),
+								(10, 'Cancion 10', 'Artista 10', 10000, 4.5, '00:04:16'),
+								(11, 'Cancion 11', 'Artista 11', 10000, 4.5, '00:04:16'),
+								(12, 'Cancion 12', 'Artista 12', 10000, 4.5, '00:04:16'),
+								(13, 'Cancion 13', 'Artista 13', 10000, 4.5, '00:04:16'),
+								(14, 'Cancion 14', 'Artista 14', 10000, 4.5, '00:04:16'),
+								(14, 'Cancion 15', 'Artista 15', 10000, 4.5, '00:04:16');
 								
 
 
@@ -79,4 +79,24 @@ Preguntas y Actividades:
 "Artistas".
 
 			ALTER TABLE Canciones ADD CONSTRAINT fk_artista FOREIGN KEY (art_id) REFERENCES(ID);
+			
+
+5. Subconsultas
+
+5.1  Utiliza una subconsulta para encontrar la canción más larga en la tabla.
+			
+			SELECT * FROM  Canciones WHERE duracion = (SELECT MAX(duracion) FROM Canciones)
+			
+
+5.2 Utiliza una subconsulta para encontrar las canciones de un artista específico.
+
+		SELECT * FROM  Canciones WHERE art_id = (SELECT art_id FROM Artista  WHERE nombre = 'NicoRuge');
+
+6. Joins Avanzados
+
+6.1 Realiza una consulta que muestre el título de la canción y el nombre del artista para todos los registros en la
+tabla "Canciones"
+
+			SELECT Canciones.titulo, Artista.nombre FROM Canciones INNER JOIN Artista ON Canciones.ID = Artista.art_id 
+			
 			
