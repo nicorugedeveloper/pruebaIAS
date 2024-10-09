@@ -161,4 +161,15 @@ inferior a 1 minuto.
 		
 
 11. Conceptos Avanzados de SQL
-Escribe una consulta recursiva para mostrar una jerarquía de canciones por reproducciones.
+
+11.1 Escribe una consulta recursiva para mostrar una jerarquía de canciones por reproducciones.
+
+	WITH RECURSIVE JeCanciones AS (
+		SELECT titulo, reproducciones FROM canciones	
+		IS NOT NULL
+			UNION ALL
+			SELECT c.titulo, a.nombre FROM Canciones c 
+			JOIN artista a ON c.artista_id = a.artista_id;
+	)
+	SELECT * FROM JeCanciones;
+	
